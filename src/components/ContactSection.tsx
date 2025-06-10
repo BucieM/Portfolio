@@ -24,13 +24,13 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-white">
+    <section id="contact" className="py-20 bg-muted text-foreground">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Contact Me</h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-center text-primary mb-12">Contact Me</h2>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           <div>
-            <h3 className="text-2xl font-semibold mb-6">Get In Touch</h3>
+            <h3 className="text-2xl font-semibold text-accent mb-6">Get In Touch</h3>
             <p className="text-gray-700 mb-8">
               Feel free to reach out to me for collaboration, opportunities, or just to say hello.
               I'm always open to discussing new projects, creative ideas, or internships.
@@ -71,6 +71,46 @@ const ContactSection = () => {
                 </a>
               </div>
             </div>
+          </div>
+
+          <div className="bg-white p-6 rounded-xl shadow-md border border-border">
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <input
+                type="text"
+                name="name"
+                placeholder="Your Name"
+                value={formData.name}
+                onChange={handleChange}
+                className="w-full p-3 border border-gray-300 rounded-lg"
+                required
+              />
+              <input
+                type="email"
+                name="email"
+                placeholder="Your Email"
+                value={formData.email}
+                onChange={handleChange}
+                className="w-full p-3 border border-gray-300 rounded-lg"
+                required
+              />
+              <textarea
+                name="message"
+                placeholder="Your Message"
+                rows={5}
+                value={formData.message}
+                onChange={handleChange}
+                className="w-full p-3 border border-gray-300 rounded-lg"
+                required
+              />
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-pink-600 transition-all"
+              >
+                {isSubmitting ? 'Sending...' : 'Send Message'}
+              </button>
+              {submitMessage && <p className="text-green-600">{submitMessage}</p>}
+            </form>
           </div>
         </div>
       </div>
