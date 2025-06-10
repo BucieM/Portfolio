@@ -1,28 +1,6 @@
-import { useState } from 'react';
 import { Github, Linkedin, Mail, Phone } from 'lucide-react';
 
 const ContactSection = () => {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitMessage, setSubmitMessage] = useState('');
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    setTimeout(() => {
-      console.log('Form submitted:', formData);
-      setSubmitMessage('Thank you for your message! I will get back to you soon.');
-      setFormData({ name: '', email: '', message: '' });
-      setIsSubmitting(false);
-    }, 1000);
-  };
-
   return (
     <section id="contact" className="py-20 bg-muted text-foreground">
       <div className="container mx-auto px-4">
@@ -71,46 +49,6 @@ const ContactSection = () => {
                 </a>
               </div>
             </div>
-          </div>
-
-          <div className="bg-white p-6 rounded-xl shadow-md border border-border">
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <input
-                type="text"
-                name="name"
-                placeholder="Your Name"
-                value={formData.name}
-                onChange={handleChange}
-                className="w-full p-3 border border-gray-300 rounded-lg"
-                required
-              />
-              <input
-                type="email"
-                name="email"
-                placeholder="Your Email"
-                value={formData.email}
-                onChange={handleChange}
-                className="w-full p-3 border border-gray-300 rounded-lg"
-                required
-              />
-              <textarea
-                name="message"
-                placeholder="Your Message"
-                rows={5}
-                value={formData.message}
-                onChange={handleChange}
-                className="w-full p-3 border border-gray-300 rounded-lg"
-                required
-              />
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-pink-600 transition-all"
-              >
-                {isSubmitting ? 'Sending...' : 'Send Message'}
-              </button>
-              {submitMessage && <p className="text-green-600">{submitMessage}</p>}
-            </form>
           </div>
         </div>
       </div>
