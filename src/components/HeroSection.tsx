@@ -33,14 +33,14 @@ const HeroSection = () => {
                 variant="outline"
                 className="border border-primary text-primary rounded-lg hover:bg-primary hover:text-white transition-colors"
               >
-                View Projects
+               View Projects
               </Button>
             </div>
           </div>
 
           <div className="flex justify-center md:justify-end">
             <img
-              src="/uploads/Screenshot_20250416_175656_WhatsApp (1).jpg"
+              src="/uploads/profilePicture.jpeg"
               alt="Busi Manzini"
               className="rounded-2xl shadow-2xl w-full max-w-[400px] h-auto object-cover"
             />

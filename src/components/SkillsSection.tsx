@@ -1,15 +1,12 @@
 import {
   Code2,
-  Database,
-  GitBranch,
-  Github,
-  Globe,
-  Layout,
-  Server,
-  Terminal,
-  Cloud,
+  FunctionSquare,
+  Sigma,
+  BarChart,
   Cpu,
-  Shield,
+  ClipboardList,
+  Handshake,
+  Trophy,
   Binary
 } from "lucide-react";
 
@@ -21,46 +18,49 @@ type Skill = {
 const SkillsSection = () => {
   const skills: Record<string, Skill[]> = {
     "Programming Languages": [
+      { name: "R", icon: <FunctionSquare className="w-8 h-8" /> },
       { name: "Python", icon: <Code2 className="w-8 h-8" /> },
-      { name: "JavaScript", icon: <Binary className="w-8 h-8" /> },
-      { name: "Java", icon: <Terminal className="w-8 h-8" /> },
-      { name: "C/C++", icon: <Cpu className="w-8 h-8" /> },
-      { name: "SQL", icon: <Database className="w-8 h-8" /> },
-      { name: "HTML/CSS", icon: <Layout className="w-8 h-8" /> },
+      { name: "SAS", icon: <Binary className="w-8 h-8" /> },
     ],
-    "Technologies & Tools": [
-      { name: "Git/GitHub", icon: <Github className="w-8 h-8" /> },
-      { name: "Cloud Computing", icon: <Cloud className="w-8 h-8" /> },
-      { name: "Web Development", icon: <Globe className="w-8 h-8" /> },
-      { name: "Cybersecurity", icon: <Shield className="w-8 h-8" /> },
-      { name: "Database Systems", icon: <Server className="w-8 h-8" /> },
-      { name: "Version Control", icon: <GitBranch className="w-8 h-8" /> },
-    ]
+    "Mathematical Skills": [
+      { name: "Algebra & Geometry", icon: <Sigma className="w-8 h-8" /> },
+      { name: "Mathematical Modelling", icon: <BarChart className="w-8 h-8" /> },
+    ],
+    "Soft Skills & Other": [
+      { name: "Effective Multitasking", icon: <Cpu className="w-8 h-8" /> },
+      { name: "Sales Negotiation", icon: <Handshake className="w-8 h-8" /> },
+      { name: "Data Entry", icon: <ClipboardList className="w-8 h-8" /> },
+      { name: "Tennis Player", icon: <Trophy className="w-8 h-8" /> },
+    ],
   };
 
   return (
-    <section id="skills" className="py-20 bg-gray-900 text-white">
+    <section id="skills" className="py-24 bg-gradient-to-b from-gray-950 to-gray-900 text-white">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-12">
+        <h2 className="text-5xl font-extrabold text-center mb-16 text-blue-400 drop-shadow-md">
           Skills & Technologies
         </h2>
 
-        {Object.entries(skills).map(([category, skillsList]) => (
-          <div key={category} className="mb-12">
-            <h3 className="text-2xl font-semibold text-blue-400 mb-6">{category}</h3>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-              {skillsList.map((skill) => (
-                <div
-                  key={skill.name}
-                  className="flex flex-col items-center p-4 bg-gray-800 rounded-lg hover:bg-blue-600 hover:text-white transition-colors"
-                >
-                  <div className="text-blue-400 mb-2">{skill.icon}</div>
-                  <span className="text-sm font-medium">{skill.name}</span>
-                </div>
-              ))}
+        <div className="space-y-20">
+          {Object.entries(skills).map(([category, skillsList]) => (
+            <div key={category}>
+              <h3 className="text-3xl font-semibold text-center text-white mb-10 underline decoration-blue-400 decoration-4 underline-offset-8">
+                {category}
+              </h3>
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 justify-items-center">
+                {skillsList.map((skill) => (
+                  <div
+                    key={skill.name}
+                    className="w-full max-w-[160px] bg-gray-800 border border-gray-700 hover:border-blue-500 hover:shadow-xl transition duration-300 rounded-2xl p-5 text-center flex flex-col items-center space-y-3"
+                  >
+                    <div className="text-blue-400">{skill.icon}</div>
+                    <span className="text-sm font-medium">{skill.name}</span>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );
