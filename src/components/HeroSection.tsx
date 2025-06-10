@@ -32,13 +32,8 @@ const HeroSection = () => {
                 Contact Me
               </Button>
 
-              <Button
-                onClick={() => scrollToSection("projects")}
-                variant="outline"
-                className="border border-primary text-primary rounded-lg hover:bg-primary hover:text-white transition-colors"
-              >
-                View Projects
-              </Button>
+              
+               
 
               <a
                 href="/uploads/Busi's CV(2025)[1].pdf"
