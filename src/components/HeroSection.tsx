@@ -1,5 +1,3 @@
-
-
 import { Button } from "./ui/button";
 import { Download } from "lucide-react";
 
@@ -23,7 +21,7 @@ const HeroSection = () => {
               Hi, I'm Busi Manzini
             </h1>
             <p className="text-lg text-gray-600">
-               Honours Student in Mathematics passionate about Computational Mathematics, Quantitative Analysis, and Data Science.
+              Honours Student in Mathematics passionate about Computational Mathematics, Quantitative Analysis, and Data Science.
             </p>
 
             <div className="flex flex-wrap gap-4">

@@ -31,7 +31,6 @@ const NavBar = () => {
             Busi Manzini
           </a>
 
-          {/* Desktop Menu */}
           <div className="hidden md:flex space-x-8">
             {menuItems.map((item) => (
               <a
@@ -44,7 +43,6 @@ const NavBar = () => {
             ))}
           </div>
 
-          {/* Mobile Menu Button */}
           <button
             className="md:hidden"
             onClick={() => setIsOpen(!isOpen)}
@@ -53,7 +51,6 @@ const NavBar = () => {
           </button>
         </div>
 
-        {/* Mobile Menu */}
         {isOpen && (
           <div className="md:hidden pb-4">
             {menuItems.map((item) => (
